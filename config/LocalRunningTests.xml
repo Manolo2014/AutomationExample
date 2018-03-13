@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Local Running Tests">
+    <test name="Empty Test Scenario" verbose="0" parallel="true" thread-count="3" enabled="true" preserve-order="false">
+        <classes>
+            <!--<class name="hubTesting.test.NewTestClass"></class>-->
+        </classes>
+    </test>
+    <test name="QAF Test Scenario" verbose="0" parallel="true" thread-count="3" enabled="true" preserve-order="false">
+        <classes>
+            <class name="hubTesting.test.qmetryTests.QmetryTestExample"></class>
+        </classes>
+    </test>
+</suite>

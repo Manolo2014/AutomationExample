@@ -1,0 +1,6 @@
+hubTesting/steps/qmetryStepClass/globalSteps/BrowserVersion.class
+hubTesting/steps/qmetryStepClass/globalSteps/GlobalSteps.class
+hubTesting/test/qmetryTests/QmetryTestExample.class
+hubTesting/steps/qmetryStepClass/QmetrySteps.class
+hubTesting/steps/qmetryStepClass/globalSteps/FindGlobalElements.class
+hubTesting/steps/qmetryStepClass/globalSteps/APIMethods.class
