@@ -16,3 +16,10 @@ Note: This project uses chrome driver and it requires chrome driver binary.
 You need to download and set webdriver.chrome.driver property in application.properties file with driver binary path.
 
 Please refer questions to https://qmetry.github.io/qaf/
+
+
+the URL that this is testing is: https://qmetry.github.io/qaf/latest/docs.html
+
+This is the maven command I am using to run these tests:
+
+mvn clean test -PLocalRunningTests -Denv.baseurl=https://qmetry.github.io/qaf/latest/docs.html -Ddriver.name=remotechromeDriver
