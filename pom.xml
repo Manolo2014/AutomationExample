@@ -10,6 +10,34 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${localSuiteFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>com.qmetry.automation.QASResultUploader</value>
+                        </property>
+                    </properties>
+                    <reportsDirectory>${test.results.dir}/${run.time}</reportsDirectory>
+                    <systemPropertyVariables>
+                        <org.uncommons.reportng.xml-dialect>testng</org.uncommons.reportng.xml-dialect>
+                        <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
+                        <log4j.configuration>file:///${resource.dir}/log4j.properties</log4j.configuration>
+                        <outputDir>${output.dir}</outputDir>
+                        <test.results.dir>${output.dir}/html</test.results.dir>
+                        <json.report.root.dir>${test.results.dir}</json.report.root.dir>
+                        <json.report.dir>${output.dir}/json</json.report.dir>
+                        <selenium.screenshots.dir>${output.dir}/img</selenium.screenshots.dir>
+                        <selenium.screenshots.relative.path>../img</selenium.screenshots.relative.path>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
@@ -199,41 +227,14 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>LocalRunningTests</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.9</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>${localSuiteFile}</suiteXmlFile>
-                            </suiteXmlFiles>
-                            <properties>
-                                <property>
-                                    <name>listener</name>
-                                    <value>com.qmetry.automation.TestngResultUploader</value>
-                                </property>
-                            </properties>
-                            <reportsDirectory>${test.results.dir}/${run.time}</reportsDirectory>
-                            <systemPropertyVariables>
-                                <org.uncommons.reportng.xml-dialect>testng</org.uncommons.reportng.xml-dialect>
-                                <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
-                                <log4j.configuration>file:///${resource.dir}/log4j.properties</log4j.configuration>
-                                <outputDir>${output.dir}</outputDir>
-                                <test.results.dir>${output.dir}/html</test.results.dir>
-                                <json.report.root.dir>${test.results.dir}</json.report.root.dir>
-                                <json.report.dir>${output.dir}/json</json.report.dir>
-                                <selenium.screenshots.dir>${output.dir}/img</selenium.screenshots.dir>
-                                <selenium.screenshots.relative.path>../img</selenium.screenshots.relative.path>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <!--<profiles>-->
+        <!--<profile>-->
+            <!--<id>LocalRunningTests</id>-->
+            <!--<build>-->
+                <!--<plugins>-->
+
+                <!--</plugins>-->
+            <!--</build>-->
+        <!--</profile>-->
+    <!--</profiles>-->
 </project>
